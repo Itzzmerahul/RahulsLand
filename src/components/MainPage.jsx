@@ -2,6 +2,6 @@
 
 export default function MainPage(){
     return(
-        <h1 className="h1">Rahul's Land</h1>
+        <h1></h1>
     )
 }
