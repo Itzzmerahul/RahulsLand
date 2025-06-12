@@ -4,6 +4,11 @@
   box-sizing: border-box;
 }
 
+.pointermode *{
+  cursor: pointer;
+
+}
+
 body{
   background-color: #cbbeb6;
   position: relative;
@@ -20,6 +25,15 @@ body{
   position:absolute;
 }
 
+.text2{
+  position: absolute;
+  z-index: 1;
+  font-family: 'cormorant garamond';
+  top: 23%;
+  left: 3%;
+  font-size: 1rem;
+  font-weight: 900;
+}
 .h1{
   color:#3E322B;
   font-family: 'Patrick Hand';
@@ -114,7 +128,7 @@ body{
 }
 .newspap {
   width: 100%;
-  display: block;
+  
   position: relative;
   z-index: 1;
 }
@@ -125,16 +139,28 @@ body{
 }
 
 .paperdiv {
+  position: relative;
   
   display: flex;
   justify-content: center;
+}
+
+.newsstack-img{
+  position: absolute;
+  z-index: 1;
+  left: 65%;
+  top: 95%;
+  cursor: pointer;
+  width: 150px;
 }
 
 .flipbook-container {
   margin-top: 50px;
   position: absolute; /* use relative to stay in layout flow */
   z-index: 1;
-  transform: translate(80%,30%);
+  top: 45%;
+  left: 18%;
+  
 
 }
 
@@ -142,6 +168,7 @@ body{
 .flipbook {
   border: 2px #3E322B;
   cursor: pointer;
+  
 }
 
 .pagetext {
@@ -156,7 +183,8 @@ body{
 
 .newspaper-wrapper {
   width: 1350px; /* match .newspap */
-  height: auto;
+  transform: translate(0,50%);
+  position: relative;
 }
 
 .sound{
@@ -172,7 +200,7 @@ body{
 }
 
 .page1,.page2{
-  width: 250px;
+  width: 400px;
   display: flex;
 }
 .blogpage{

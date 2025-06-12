@@ -35,6 +35,9 @@
   "dependencies": {
   
     
+  "framer-motion": "^12.17.3",
+  
+    
   "react": "^19.1.0",
   
     
