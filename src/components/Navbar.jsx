@@ -10,16 +10,10 @@ export default function Navbar(){
         <h1 className="h1">Rahul's Land</h1>
         <nav className="Nav0">
             <ul className="Nav1">
-                <li>Home</li>
-                <li>CLI Play</li>
-                <li onClick={()=> {
-                    if(window.location.pathname.endsWith("/Blogpage")){
-                        navigate("/");
-                    }else{
-                        navigate("/Blogpage");
-                    }}
-                }>Rahul Blogs</li>
-                <li>Edits</li>
+                <li onClick={()=>{navigate("/")}}>Home</li>
+                <li onClick={()=>{navigate("/Cli")}}>CLI Play</li>
+                <li onClick={()=>{navigate("/Blogpage")}}>Rahul Blogs</li>
+                <li onClick={()=>{navigate("/edits")}}>Edits</li>
             </ul>
         </nav>
         </>

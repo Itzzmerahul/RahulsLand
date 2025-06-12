@@ -8,16 +8,16 @@ body{
   background-color: #cbbeb6;
   position: relative;
   height: 100vh;
-  
 }
 
 .title{
   font-family: 'Patrick Hand';
   letter-spacing: 2px;
   margin-left: 20px;
-  font-size: 1.2rem;
+  font-size: 0.6rem;
   margin-top: 30px;
   font-weight: 40;
+  position:absolute;
 }
 
 .h1{
@@ -31,11 +31,12 @@ body{
 .p1{
   position: absolute;
   transform: translate(50%,50%);
-  top: 55%;
-  right: 35%;
+  top: 40%;
+  right: 38%;
   font-family: 'cormorant garamond';
   font-weight: 900;
 }
+
 
 .Nav0{
   background: rgba(255, 255, 255, 0.3);
@@ -92,12 +93,88 @@ body{
   align-items: center;
 
 }
+
 .homeimg{
   width: 1350px;
   height: auto;
+  pointer-events: none;
+  
+}
+
+.messybox{
+  position: absolute;
+  padding: 10px 10px;
+  border-radius: 15px;
+  font-family: 'patrick hand';
+  letter-spacing: 1px;
+  font-size: 0.8rem;
+  top: 340px;
+  left: 800px;
+  cursor: pointer;
+}
+.newspap {
+  width: 100%;
+  display: block;
+  position: relative;
+  z-index: 1;
+}
+
+.page{
+  
+  
+}
+
+.paperdiv {
+  
+  display: flex;
+  justify-content: center;
+}
+
+.flipbook-container {
+  margin-top: 50px;
+  position: absolute; /* use relative to stay in layout flow */
+  z-index: 1;
+  transform: translate(80%,30%);
 
 }
 
+
+.flipbook {
+  border: 2px #3E322B;
+  cursor: pointer;
+}
+
+.pagetext {
+  font-family: 'Patrick Hand';
+  font-size: 1.2rem;
+  color: #3E322B;
+  text-align: center;
+  padding: 20px;
+}
+
+
+
+.newspaper-wrapper {
+  width: 1350px; /* match .newspap */
+  height: auto;
+}
+
+.sound{
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  right: 0;
+  transform: translate(-150%,30px);
+}
+
+.soundimg{
+  width: 30px;
+}
+
+.page1,.page2{
+  width: 250px;
+  display: flex;
+}
 .blogpage{
       min-height: 100vh;
       background-color: #FFFFFF;
