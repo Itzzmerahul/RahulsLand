@@ -2,16 +2,18 @@ import { useEffect, useRef, useState } from "react";
 import HTMLFlipBook from "react-pageflip";
 import homevid from "../extra files/homevid-vmake.mp4";
 import newspap from "../extra files/Newspapimg.png";
-import birdsSong from "../extra files/birdssong1.mp3";
+import birdsSong from "../extra files/saudade.mp3";
 import sound from "../extra files/sound.png";
 import news1 from "../extra files/news1.png";
 import newsstack from "../extra files/newsstack.png";
 import solace from "../extra files/solace.png";
+import flipSound from "../extra files/pagefilp.mp3"; // using uploaded mp3 directly
 
 export default function MainPage() {
   const audref = useRef(null);
   const page = useRef(null);
   const flipRef = useRef(null);
+  const flipAudioRef = useRef(null);
   const [isPlaying, setIsPlaying] = useState(false);
   const [showFlipbook, setShowFlipbook] = useState(false);
   const [isReady, setIsReady] = useState(false);
@@ -31,13 +33,26 @@ export default function MainPage() {
     setTimeout(() => setShowStack(true), 300);
   };
 
-  const handleStackClick = () => {
+  const handleStackClick = async () => {
     setShowFlipbook(true);
     setIsReady(true);
     setShowStack(false);
+
+    // Unlock flip sound on first user gesture
+    const audio = flipAudioRef.current;
+    if (audio) {
+      try {
+        await audio.play();
+        audio.pause();
+        audio.currentTime = 0;
+      } catch (err) {
+        console.log("Autoplay blocked or preload failed:", err);
+      }
+    }
   };
 
-  // Hide flipbook when clicking outside
+  
+
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (
@@ -70,25 +85,27 @@ export default function MainPage() {
           <img src={sound} alt="sound" className="soundimg" />
         </div>
         <p className="p1">
-          A pastel hush drapes the gentle room, where morning seeps through softened blind , each ray a whisper, <br />
+          A pastel hush drapes the gentle room, where morning seeps through softened blind, each ray a whisper,<br />
           golden and slow, kissing pale walls with time unlined.
         </p>
         <button className="messybox" onClick={pageturn}>Read Newspaper</button>
       </div>
 
-      <div className="paperdiv" >
-        <div className={showFlipbook?"newspaper-wrapper pointermode":"newspaper-wrapper"} ref={page}>
+      <audio ref={flipAudioRef} preload="auto">
+        <source src={flipSound} type="audio/mpeg" />
+      </audio>
+
+      <div className="paperdiv">
+        <div className={showFlipbook ? "newspaper-wrapper pointermode" : "newspaper-wrapper"} ref={page}>
           <img src={newspap} alt="newspap" className="newspap" />
         </div>
 
-        {/* Stack Image */}
         {showStack && !showFlipbook && (
           <div className="newsstack-container" onClick={handleStackClick}>
             <img src={newsstack} alt="stack" className="newsstack-img" />
           </div>
         )}
 
-        {/* Flipbook */}
         {isReady && showFlipbook && (
           <div className="flipbook-container" ref={flipRef}>
             <HTMLFlipBook
@@ -97,6 +114,19 @@ export default function MainPage() {
               showCover={true}
               usePortrait={false}
               className="flipbook"
+              flippingTime={500}
+              onFlip={() => {
+                const audio = flipAudioRef.current;
+                if (audio) {
+                  try {
+                    audio.pause();
+                    audio.currentTime = 0;
+                    audio.play();
+                  } catch (err) {
+                    console.log("Playback error:", err);
+                  }
+                }
+              }}
             >
               <div className="page">
                 <img src={news1} alt="page1" className="page1" />
