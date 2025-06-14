@@ -164,6 +164,12 @@ body{
 
 }
 
+.p2{
+  position: absolute;
+  transform: translate(-106%,780%);
+  font-family: 'cormorant garamond';
+  font-weight: 600;
+}
 
 .flipbook {
   border: 2px #3E322B;
@@ -203,6 +209,8 @@ body{
   width: 400px;
   display: flex;
 }
+
+
 .blogpage{
       min-height: 100vh;
       background-color: #FFFFFF;

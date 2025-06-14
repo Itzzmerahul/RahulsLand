@@ -37,15 +37,14 @@ export default function MainPage() {
     setShowFlipbook(true);
     setIsReady(true);
     setShowStack(false);
-
-    // Unlock flip sound on first user gesture
+    
     const audio = flipAudioRef.current;
     if (audio) {
       try {
         await audio.play();
         audio.pause();
         audio.currentTime = 0;
-      } catch (err) {
+      } catch (err) {``
         console.log("Autoplay blocked or preload failed:", err);
       }
     }
@@ -100,6 +99,11 @@ export default function MainPage() {
           <img src={newspap} alt="newspap" className="newspap" />
         </div>
 
+        <p className="p2">A morning hum, the sun pours wide,
+through windows clear on <br/> either side. While outside life may dart and sway,
+he reads the pulse  <br/> of the world today.</p>
+        
+
         {showStack && !showFlipbook && (
           <div className="newsstack-container" onClick={handleStackClick}>
             <img src={newsstack} alt="stack" className="newsstack-img" />
@@ -112,7 +116,7 @@ export default function MainPage() {
               width={407}
               height={569}
               showCover={true}
-              usePortrait={false}
+              usePortrait={false} 
               className="flipbook"
               flippingTime={500}
               onFlip={() => {
