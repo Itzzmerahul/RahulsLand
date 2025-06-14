@@ -20,7 +20,7 @@ body{
   letter-spacing: 2px;
   margin-left: 20px;
   font-size: 0.6rem;
-  margin-top: 30px;
+  margin-top: 80px;
   font-weight: 40;
   position:absolute;
 }
@@ -49,18 +49,18 @@ body{
   right: 38%;
   font-family: 'cormorant garamond';
   font-weight: 900;
+  
 }
 
-
 .Nav0{
+  position: fixed;
   background: rgba(255, 255, 255, 0.3);
   backdrop-filter:blur(10px);
   border-radius: 15px;
   border: 1px solid rgba(255, 255, 255, 0.3);
   width: fit-content;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 0;
+  z-index: 2;
+  margin-left: 500px;
   padding-top: 10px;
   padding-bottom: 5px;
   transform: translateY(-15px);
@@ -111,6 +111,7 @@ body{
 .homeimg{
   width: 1350px;
   height: auto;
+  margin-top: 120px;
   pointer-events: none;
   
 }
@@ -152,6 +153,13 @@ body{
   top: 95%;
   cursor: pointer;
   width: 150px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background-color: rgba(255,255,255,0.05);
+  border-radius: 10px;
+}
+
+.newsstack-img:hover {
+  transform: scale(1.1);
 }
 
 .flipbook-container {
@@ -166,9 +174,9 @@ body{
 
 .p2{
   position: absolute;
-  transform: translate(-106%,780%);
+  transform: translate(-115%,900%);
   font-family: 'cormorant garamond';
-  font-weight: 600;
+  font-weight: 900;
 }
 
 .flipbook {
@@ -221,6 +229,13 @@ body{
       font-family: 'Patrick Hand';
       color: #3E322B;
       padding: 40px;
+}
+
+.cli{
+  display: flex;
+  align-items: center;
+  justify-self: center;
+  height: 100vh;
 }
 
 

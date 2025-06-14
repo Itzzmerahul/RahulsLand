@@ -6,6 +6,7 @@ import birdsSong from "../extra files/saudade.mp3";
 import sound from "../extra files/sound.png";
 import news1 from "../extra files/news1.png";
 import newsstack from "../extra files/newsstack.png";
+import walk from "../extra files/walk.jpeg"
 import solace from "../extra files/solace.png";
 import flipSound from "../extra files/pagefilp.mp3"; // using uploaded mp3 directly
 
@@ -101,7 +102,7 @@ export default function MainPage() {
 
         <p className="p2">A morning hum, the sun pours wide,
 through windows clear on <br/> either side. While outside life may dart and sway,
-he reads the pulse  <br/> of the world today.</p>
+he reads the  <br/> pulse of the world today.</p>
         
 
         {showStack && !showFlipbook && (
@@ -147,6 +148,7 @@ he reads the pulse  <br/> of the world today.</p>
             </HTMLFlipBook>
           </div>
         )}
+        
       </div>
     </>
   );
