@@ -145,6 +145,95 @@ body{
   display: flex;
   justify-content: center;
 }
+.gif-wrapper {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 150px;
+  height: 150px;
+  z-index: 2;
+}
+
+.center-gif {
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  z-index: 3;
+  transition: opacity 2s ease-in-out;
+  cursor: pointer;
+  position: relative;
+}
+
+.climode{
+  font-size: 3rem;
+  letter-spacing: 1px;
+  position: absolute;
+  top: 45%;
+  left:29%;
+  transform: translate(0%,0%);
+  color: #FFFFFF;
+  font-family: 'vt323';
+  z-index: 15;
+
+}
+
+.vid{
+  width: 100vw;
+  object-fit: cover; /* This makes sure it covers the whole area without distortion */
+  position: absolute;
+  height: 100vh;
+  z-index: 4;
+}
+
+
+
+.center-gif.shrink {
+  transform: translate(0%, 0%) scale(0);
+  opacity: 0;
+  transition: transform 0.5s ease, opacity 0.5s ease;
+}
+
+.fill-animation {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 150px;
+  height: 150px;
+  background-color: #000000;
+  border-radius: 50%;
+  z-index: 1;
+  animation: expand 1s ease-out forwards;
+}
+
+
+@keyframes expand {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(50); /* tweak based on your screen */
+    opacity: 1;
+  }
+}
+
+
+.center-gif.visible{
+  opacity: 1;
+}
+
+.distort-gif {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  height: 200px;
+  transform: translate(-50%, -50%);
+  z-index: 3;
+  width: 100vw;
+  height: 100vh;
+}
+
 
 .newsstack-img{
   position: absolute;
@@ -231,11 +320,53 @@ body{
       padding: 40px;
 }
 
+
 .cli{
   display: flex;
   align-items: center;
   justify-self: center;
   height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+  background-color: #000000;
+  position: relative;
+}
+
+.hands{
+  position: absolute;
+  top: 0;
+  
+  z-index: 1;
+  opacity: 0;
+  transition: all 1s ease-in-out;
+  height: 100%;
+}
+
+.handsleft {
+  left: 0;
+  transform: translateX(-100%);
+  width: 52%;
+}
+
+.handsright {
+  right: 0;
+  transform: translateX(100%);
+  width: 47%;
+}
+
+.handsleft.active {
+  transform: translateX(0%);
+}
+
+.handsright.active {
+  transform: translateX(0%);
+
+}
+
+.handsleft.active,
+.handsright.active {
+  transform: translateX(0%);
+  opacity: 1;
 }
 
 
