@@ -11,7 +11,8 @@ import Glitcha from "../extra files/glitch.mp3"
 export default function Cli(){
 
     const data=useRef(null)
-
+    const vidplay = useRef(null)
+    const [stopvid,setStopvid]=useState(false)
     const [loaded,setloaded]= useState(false)
     const [Mygif,setgif] = useState(false)
     const [distortgif,setDistortgif] = useState(false)
@@ -23,6 +24,24 @@ export default function Cli(){
     console.log("GIF Path: ", gif);
 
    
+
+
+    useEffect(() => {
+  if (playvid && vidplay.current) {
+    const video = vidplay.current;
+
+    const handleEnd = () => {
+      setPlayvid(false); // This will hide the video when it ends
+    };
+
+    video.addEventListener("ended", handleEnd);
+
+    return () => {
+      video.removeEventListener("ended", handleEnd);
+    };
+  }
+}, [playvid]);
+
 
     useEffect(()=>{
         const time=setTimeout(() => setloaded(true),100);
@@ -56,10 +75,15 @@ export default function Cli(){
     
     setTimeout(() => 
       setPlayvid(true), 300);
-      setGlitchaud(true);
+      
+
+    setTimeout(() => 
+         setGlitchaud(true),310);
+     
 
     setTimeout(() => 
         setGlitchpara(true),300);
+
 
 }}
 
@@ -73,7 +97,7 @@ export default function Cli(){
             <img src={hands2} alt=""  className={`hands handsright ${loaded?"active":""}`}/>
 
            {playvid&&(
-            <video autoPlay className="vid">
+            <video autoPlay className="vid" ref={vidplay}>
                 <source src={spin} type="video/mp4"/>
             </video>)}
 
