@@ -1,6 +1,5 @@
 * {
-  margin: 0;
-  padding: 0;
+
   box-sizing: border-box;
 }
 
@@ -9,11 +8,14 @@
 
 }
 
-body{
+body, html {
   background-color: #cbbeb6;
   position: relative;
-  height: auto;
-  overflow-y: auto;
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  overflow-x: hidden; /* Prevent horizontal scrolling */
+  overflow-y: auto; /* Allow vertical scrolling when needed */
 }
 
 .title{
@@ -60,7 +62,7 @@ body{
   border-radius: 15px;
   border: 1px solid rgba(255, 255, 255, 0.3);
   width: fit-content;
-  z-index: 2;
+
   margin-left: 500px;
   padding-top: 10px;
   padding-bottom: 5px;
@@ -168,12 +170,14 @@ body{
 
 
 
-.vid{
+.vid {
+  position: fixed; /* Ensure it stays within viewport */
+  top: 0;
+  left: 0;
   width: 100vw;
-  object-fit: cover; /* This makes sure it covers the whole area without distortion */
-  position: absolute;
   height: 100vh;
-  z-index: 4;
+  z-index: 4; /* Above fill-animation, below terminal */
+  object-fit: cover; /* Prevent distortion */
 }
 
 
@@ -184,77 +188,70 @@ body{
   transition: transform 0.5s ease, opacity 0.5s ease;
 }
 
-.climode{
-  font-size: 3rem;
+.climode {
+  font-size: 2.5rem;
   letter-spacing: 1px;
-  position: absolute;
-  top: 45%;
-  left:29%;
-  transform: translate(0%,0%);
-  color: #FFFFFF;
-  font-family: 'vt323';
-  z-index: 6;
-
+  position: fixed; /* Changed to fixed */
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #ffffff;
+  font-family: 'VT323', monospace;
+  z-index: 8;
+  width: auto; /* Changed to auto for flexibility */
 }
 
 .climodeoff {
-  
-  transform: translate(20%, -600%);
   font-size: 2.5rem;
-  width: 25ch; 
-  font-family: 'vt323', monospace;
-  
-}
-
-.terminal {
-  position: relative;
-  width: 80vw;
-  height: 100vh;
-  top: 60%;
-  left: 38%;
-  transform: translateY(-50%);
-  z-index: 2;
-  color: #00ff00;
+  position: fixed; /* Changed to fixed */
+  top: 20px;
+  left: 10%;
+  transform: translateX(-50%);
+  color: #ffffff;
   font-family: 'VT323', monospace;
-  font-size: 1.3rem;
-  background-color: rgb(255, 0, 0);
+  z-index: 8;
+  width: auto; /* Changed to auto */
+}
+.container {
+  position: relative;
+  width: 100%;
+  min-height: auto; /* Allow natural growth */
+  display: block; /* Normal flow */
+  margin: 0;
+  padding: 0;
 }
 
 .terminal {
   position: relative;
   width: 80vw;
-  max-height: none;  
-  margin: 0 auto;
-  margin-top: 300px;
-  margin-left: 100px;
+  max-width: 800px;
+  min-height: 60vh;
   padding: 20px;
-  overflow-y: auto;
+  margin: 0 auto; /* No top margin */
   display: flex;
   flex-direction: column;
-  gap: 8px; /* spacing between lines */
+  gap: 8px;
   color: #00ff00;
   font-family: 'VT323', monospace;
   font-size: 1.3rem;
-  background-color: black;
-  overflow: visible;   
+  background-color: #000000;
+  border: 2px solid #333333;
+  z-index: 7;
 }
-
 .input-line{
   transform: translate(31%,500%);
   font-size: 1.3rem;
 }
 
 .mainpara {
-  position: absolute;
-  top: 20%; /* Adjust as needed */
-  left: 47%;
-  transform: none;
-  z-index: 10;
+  position: relative;
+  margin: 20px auto; /* Minimal margin */
   font-family: 'Patrick Hand';
-  font-size: 1.5rem;
+  font-size: 1.8rem;
   color: #ffffff;
+  text-align: center;
+  z-index: 8;
 }
-
 
 
 .boxy {
@@ -274,19 +271,21 @@ body{
 
 .cli-line {
   font-size: 1.3rem;
-  color: #00FF00;
-}
-
-.cli-line.response {
-  color: #AAAAAA;
-  font-size: 1.3rem;
-
+  color: #00ff00;
+  margin: 0; /* Remove default margins */
+  white-space: pre-wrap; /* Preserve whitespace and wrap long lines */
 }
 
 .cli-line.input {
   display: flex;
   align-items: center;
-  font-size: 1.5rem;
+  font-size: 1.3rem; /* Match response size for consistency */
+  color: #00ff00;
+}
+
+.cli-line.input::before {
+  content: "cli@rahul~$ "; /* Add prompt prefix */
+  color: #00ff00;
 }
 
 .cli-line.input input {
@@ -295,35 +294,41 @@ body{
   outline: none;
   color: #00ff00;
   font-family: 'VT323', monospace;
-  font-size: 1.5rem;
-  width: 100%;
+  font-size: 1.3rem;
+  width: 100%; /* Full width of parent */
+  caret-color: #00ff00; /* Green cursor */
+}
+
+.cli-line.response {
+  color: #aaaaaa;
+  font-size: 1.3rem;
+  margin-top: 4px; /* Small gap after input */
+  white-space: pre-wrap; /* Preserve newlines in responses */
 }
 
 
 .fill-animation {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
-  width: 150px;
-  height: 150px;
+  width: 100vw;
+  height: 100vh;
   background-color: #000000;
-  border-radius: 50%;
-  z-index: 1;
-  animation: expand 1s ease-out forwards;
+  z-index: 2;
+  clip-path: circle(20px at 50vw 50vh); /* Visible starting circle */
+  animation: expand 2.5s ease-out forwards;
 }
-
 
 @keyframes expand {
   0% {
-    transform: scale(1);
+    clip-path: circle(0px at 50vw 50vh);
     opacity: 1;
   }
   100% {
-    transform: scale(50); /* tweak based on your screen */
+    clip-path: circle(300% at 50vw 50vh);
     opacity: 1;
   }
 }
-
 
 .center-gif.visible{
   opacity: 1;
@@ -427,25 +432,30 @@ body{
 }
 
 
-.cli{
-  display: flex;
-  align-items: center;
-  justify-self: center;
-  height: 100vh;
+.cli {
+  display: block; /* Changed from flex to normal flow */
   width: 100vw;
-  overflow: hidden;
+  min-height: 100vh;
   background-color: #000000;
+  overflow-x: hidden;
+  overflow-y: auto;
   position: relative;
+  margin: 0;
+  padding: 0;
 }
-
-.hands{
+.hands {
   position: absolute;
   top: 0;
-  
   z-index: 1;
   opacity: 0;
   transition: all 1s ease-in-out;
   height: 100%;
+}
+
+.handsleft.active,
+.handsright.active {
+  transform: translateX(0%);
+  opacity: 1;
 }
 
 .handsleft {
@@ -469,11 +479,7 @@ body{
 
 }
 
-.handsleft.active,
-.handsright.active {
-  transform: translateX(0%);
-  opacity: 1;
-}
+
 
 
 @media (max-width: 768px) {

@@ -77,33 +77,37 @@ I believe code is an art — and I am here to be the artist.`;
   }, []);
 
   return (
-    <div className="cli">
-      <img src={hands1} alt="left" className={`hands handsleft ${loaded ? "active" : ""}`} />
-
-      <div className="gif-wrapper">
-        {distortgif && <div className="fill-animation" />}
-        <img
-          src={gif}
-          alt="gif"
-          className={`center-gif ${Mygif ? "visible" : ""} ${distortgif ? "shrink" : ""}`}
-          onClick={() => {
-            setDistortgif(true);
-            setPlayaud(true);
-            setTimeout(() => setPlayvid(true), 300);
-            setTimeout(() => setGlitchaud(true), 310);
-            setTimeout(() => setGlitchpara(true), 300);
-          }}
-        />
-      </div>
-
-      {playaudi && (
-        <audio ref={data} autoPlay>
-          <source src={ambient} type="audio/mpeg" />
-        </audio>
-      )}
-
-      <img src={hands2} alt="right" className={`hands handsright ${loaded ? "active" : ""}`} />
-
+   <div className="cli">
+  <img
+    src={hands1}
+    alt="left"
+    className={`hands handsleft ${loaded && !distortgif ? "active" : ""}`}
+  />
+  {distortgif && <div className="fill-animation" />} {/* Moved here */}
+  <div className="gif-wrapper">
+    <img
+      src={gif}
+      alt="gif"
+      className={`center-gif ${Mygif ? "visible" : ""} ${distortgif ? "shrink" : ""}`}
+      onClick={() => {
+        setDistortgif(true);
+        setPlayaud(true);
+        setTimeout(() => setPlayvid(true), 300);
+        setTimeout(() => setGlitchaud(true), 310);
+        setTimeout(() => setGlitchpara(true), 300);
+      }}
+    />
+  </div>
+  {playaudi && (
+    <audio ref={data} autoPlay>
+      <source src={ambient} type="audio/mpeg" />
+    </audio>
+  )}
+  <img
+    src={hands2}
+    alt="right"
+    className={`hands handsright ${loaded && !distortgif ? "active" : ""}`}
+  />
       {playvid && (
         <video autoPlay className="vid" ref={vidplay}>
           <source src={spin} type="video/mp4" />
@@ -116,6 +120,7 @@ I believe code is an art — and I am here to be the artist.`;
         </audio>
       )}
 
+<div className="container">
       {glitchpara && (
         <p className={`climode ${!playvid ? "climodeoff" : ""}`}>
           <Typewriter
@@ -130,6 +135,7 @@ I believe code is an art — and I am here to be the artist.`;
           />
         </p>
       )}
+      </div>
 
    {!playvid && glitchpara && (
   <>
@@ -166,7 +172,7 @@ I believe code is an art — and I am here to be the artist.`;
         onChange={(e) => setInp(e.target.value)}
         onKeyDown={handleInput}
         className="boxy"
-        autoFocus
+        
       />
     </div>
     </div>
