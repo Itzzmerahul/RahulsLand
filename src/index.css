@@ -192,25 +192,25 @@ body, html {
   font-size: 2.5rem;
   letter-spacing: 1px;
   position: fixed; /* Changed to fixed */
-  top: 20px;
+  top: 200px;
   left: 50%;
   transform: translateX(-50%);
   color: #ffffff;
   font-family: 'VT323', monospace;
   z-index: 8;
-  width: auto; /* Changed to auto for flexibility */
+  width: 31ch; /* Changed to auto for flexibility */
 }
 
 .climodeoff {
   font-size: 2.5rem;
   position: fixed; /* Changed to fixed */
   top: 20px;
-  left: 10%;
+  left: 20%;
   transform: translateX(-50%);
   color: #ffffff;
   font-family: 'VT323', monospace;
   z-index: 8;
-  width: auto; /* Changed to auto */
+  width: 31ch; /* Changed to auto */
 }
 .container {
   position: relative;
@@ -316,7 +316,7 @@ body, html {
   background-color: #000000;
   z-index: 2;
   clip-path: circle(20px at 50vw 50vh); /* Visible starting circle */
-  animation: expand 2.5s ease-out forwards;
+  animation: expand 1s ease-out forwards;
 }
 
 @keyframes expand {
