@@ -12,7 +12,8 @@
 body{
   background-color: #cbbeb6;
   position: relative;
-  height: 100vh;
+  height: auto;
+  overflow-y: auto;
 }
 
 .title{
@@ -192,19 +193,111 @@ body{
   transform: translate(0%,0%);
   color: #FFFFFF;
   font-family: 'vt323';
-  z-index: 15;
+  z-index: 6;
 
 }
 
 .climodeoff {
   
-  transform: translate(-90%, -600%);
+  transform: translate(20%, -600%);
   font-size: 2.5rem;
   width: 25ch; 
   font-family: 'vt323', monospace;
   
 }
 
+.terminal {
+  position: relative;
+  width: 80vw;
+  height: 100vh;
+  top: 60%;
+  left: 38%;
+  transform: translateY(-50%);
+  z-index: 2;
+  color: #00ff00;
+  font-family: 'VT323', monospace;
+  font-size: 1.3rem;
+  background-color: rgb(255, 0, 0);
+}
+
+.terminal {
+  position: relative;
+  width: 80vw;
+  max-height: none;  
+  margin: 0 auto;
+  margin-top: 300px;
+  margin-left: 100px;
+  padding: 20px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 8px; /* spacing between lines */
+  color: #00ff00;
+  font-family: 'VT323', monospace;
+  font-size: 1.3rem;
+  background-color: black;
+  overflow: visible;   
+}
+
+.input-line{
+  transform: translate(31%,500%);
+  font-size: 1.3rem;
+}
+
+.mainpara {
+  position: absolute;
+  top: 20%; /* Adjust as needed */
+  left: 47%;
+  transform: none;
+  z-index: 10;
+  font-family: 'Patrick Hand';
+  font-size: 1.5rem;
+  color: #ffffff;
+}
+
+
+
+.boxy {
+  background: transparent;
+  border: none;
+  outline: none;
+  color: #00ff00;
+  font-family: 'VT323', monospace;
+  font-size: 1.3rem;
+  width: 60vw;
+}
+
+.nbsp {
+  display: inline-flex;
+  align-items: center;
+}
+
+.cli-line {
+  font-size: 1.3rem;
+  color: #00FF00;
+}
+
+.cli-line.response {
+  color: #AAAAAA;
+  font-size: 1.3rem;
+
+}
+
+.cli-line.input {
+  display: flex;
+  align-items: center;
+  font-size: 1.5rem;
+}
+
+.cli-line.input input {
+  background: transparent;
+  border: none;
+  outline: none;
+  color: #00ff00;
+  font-family: 'VT323', monospace;
+  font-size: 1.5rem;
+  width: 100%;
+}
 
 
 .fill-animation {
