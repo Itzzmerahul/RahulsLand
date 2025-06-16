@@ -165,18 +165,7 @@ body{
   position: relative;
 }
 
-.climode{
-  font-size: 3rem;
-  letter-spacing: 1px;
-  position: absolute;
-  top: 45%;
-  left:29%;
-  transform: translate(0%,0%);
-  color: #FFFFFF;
-  font-family: 'vt323';
-  z-index: 15;
 
-}
 
 .vid{
   width: 100vw;
@@ -193,6 +182,30 @@ body{
   opacity: 0;
   transition: transform 0.5s ease, opacity 0.5s ease;
 }
+
+.climode{
+  font-size: 3rem;
+  letter-spacing: 1px;
+  position: absolute;
+  top: 45%;
+  left:29%;
+  transform: translate(0%,0%);
+  color: #FFFFFF;
+  font-family: 'vt323';
+  z-index: 15;
+
+}
+
+.climodeoff {
+  
+  transform: translate(-90%, -600%);
+  font-size: 2.5rem;
+  width: 25ch; 
+  font-family: 'vt323', monospace;
+  
+}
+
+
 
 .fill-animation {
   position: absolute;

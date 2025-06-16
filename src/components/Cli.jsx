@@ -12,7 +12,6 @@ export default function Cli(){
 
     const data=useRef(null)
     const vidplay = useRef(null)
-    const [stopvid,setStopvid]=useState(false)
     const [loaded,setloaded]= useState(false)
     const [Mygif,setgif] = useState(false)
     const [distortgif,setDistortgif] = useState(false)
@@ -106,9 +105,10 @@ export default function Cli(){
                 <source src={Glitcha} type="audio/mp3"/>
             </audio>)}
             
-            {glitchpara&&(<p className="climode">
+            {glitchpara&&(<p className={`climode ${!playvid ? "climodeoff" : ""}`}>
                 <Typewriter
-        words={['U just entered the CLI Mode.']}
+                key={playvid ? "full" : "short"}
+        words={!playvid? ['Cli Mode']:['U just entered the CLI Mode.']}
         loop={1}
         cursor
         cursorStyle='|'
@@ -117,7 +117,15 @@ export default function Cli(){
         delaySpeed={1000}
       />
             </p>)}
+
+
+
+            <div>
+              
+            </div>
         </div>
+
+
 
 
         
