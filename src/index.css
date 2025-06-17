@@ -262,8 +262,12 @@ body, html {
   font-family: 'VT323', monospace;
   font-size: 1.3rem;
   width: 60vw;
+   flex: 1; 
 }
 
+.boxy::before {
+  content: none; /* Ensure no pseudo-element adds prompt */
+}
 .nbsp {
   display: inline-flex;
   align-items: center;
@@ -281,12 +285,21 @@ body, html {
   align-items: center;
   font-size: 1.3rem; /* Match response size for consistency */
   color: #00ff00;
+  gap: 8px; 
 }
 
 .cli-line.input::before {
-  content: "cli@rahul~$ "; /* Add prompt prefix */
+  
   color: #00ff00;
 }
+
+.prompt {
+  color: #00ff00;
+  font-family: 'VT323', monospace;
+  font-size: 1.3rem;
+  white-space: nowrap; /* Prevent prompt wrapping */
+}
+
 
 .cli-line.input input {
   background: transparent;
