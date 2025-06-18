@@ -6,7 +6,7 @@ import birdsSong from "../extra files/saudade.mp3";
 import sound from "../extra files/sound.png";
 import news1 from "../extra files/news1.png";
 import newsstack from "../extra files/newsstack.png";
-import walk from "../extra files/walk.jpeg"
+import walk from "../extra files/walk3.png"
 import solace from "../extra files/solace.png";
 import flipSound from "../extra files/pagefilp.mp3"; // using uploaded mp3 directly
 
@@ -148,6 +148,9 @@ he reads the  <br/> pulse of the world today.</p>
             </HTMLFlipBook>
           </div>
         )}
+        <div className="walkingdiv">
+                <img src={walk} alt="" className="walking"/>
+                </div>
         
       </div>
     </>
