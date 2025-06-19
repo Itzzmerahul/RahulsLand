@@ -59,25 +59,25 @@ body, html {
   position: fixed;
   background: rgba(255, 255, 255, 0.3);
   backdrop-filter:blur(10px);
+  z-index: 2;
   border-radius: 15px;
   border: 1px solid rgba(255, 255, 255, 0.3);
   width: fit-content;
 
   margin-left: 500px;
-  padding-top: 10px;
-  padding-bottom: 5px;
   transform: translateY(-15px);
+ 
   
 }
 
 .Nav1{
   list-style: none;
-  display: flex;
-  justify-content: center;
   font-size: 1.4rem ;
   font-family: 'Patrick Hand';
-  gap: 40px;
-  padding: 10px 10px;
+  gap: 30px;
+    display: flex;
+  justify-content: center;
+  padding-right: 25px;
 }
 
 .Nav1 li{
@@ -133,7 +133,7 @@ body, html {
 .newspap {
   width: 100%;
   
-  position: relative;
+ 
   z-index: 1;
 }
 
@@ -144,7 +144,7 @@ body, html {
 
 .paperdiv {
   position: relative;
-  
+  width: 100%;
   display: flex;
   justify-content: center;
 }
@@ -411,7 +411,7 @@ body, html {
 .newspaper-wrapper {
   width: 1350px; /* match .newspap */
   transform: translate(0,50%);
-  position: relative;
+  
 }
 
 .sound{
@@ -494,20 +494,28 @@ body, html {
 
 
 .walkingdiv {
-  height: 100vh;
-  width: 100vw;
-  position: relative;
-  overflow: hidden;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 1100px;
+  
 }
 
 .walking {
-  position: absolute;
-  top: 100%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  height: 200px; /* or auto */
+  width: 100%;
 }
 
+.walkbtn{
+  height: 40px;
+  position: absolute;
+  top: 51%;
+  left: 20%;
+  border-radius: 15px;
+  font-size: 0.8rem;
+  letter-spacing: 1px;
+  cursor: pointer;
+  font-family: 'patrick hand';
+}
 
 
 

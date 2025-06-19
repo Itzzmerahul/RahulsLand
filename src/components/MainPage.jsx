@@ -6,7 +6,7 @@ import birdsSong from "../extra files/saudade.mp3";
 import sound from "../extra files/sound.png";
 import news1 from "../extra files/news1.png";
 import newsstack from "../extra files/newsstack.png";
-import walk from "../extra files/walk3.png"
+import walk from "../extra files/walk4.png"
 import solace from "../extra files/solace.png";
 import flipSound from "../extra files/pagefilp.mp3"; // using uploaded mp3 directly
 
@@ -15,6 +15,7 @@ export default function MainPage() {
   const page = useRef(null);
   const flipRef = useRef(null);
   const flipAudioRef = useRef(null);
+  const walkpage = useRef(null)
   const [isPlaying, setIsPlaying] = useState(false);
   const [showFlipbook, setShowFlipbook] = useState(false);
   const [isReady, setIsReady] = useState(false);
@@ -33,6 +34,10 @@ export default function MainPage() {
     page.current?.scrollIntoView({ behavior: "smooth" });
     setTimeout(() => setShowStack(true), 300);
   };
+
+  const navWalk = () => {
+    walkpage.current?.scrollIntoView({behavior:"smooth"});
+  }
 
   const handleStackClick = async () => {
     setShowFlipbook(true);
@@ -98,6 +103,7 @@ export default function MainPage() {
       <div className="paperdiv">
         <div className={showFlipbook ? "newspaper-wrapper pointermode" : "newspaper-wrapper"} ref={page}>
           <img src={newspap} alt="newspap" className="newspap" />
+          <button className="walkbtn" onClick={navWalk}>Go out for a walk</button>
         </div>
 
         <p className="p2">A morning hum, the sun pours wide,
@@ -148,7 +154,7 @@ he reads the  <br/> pulse of the world today.</p>
             </HTMLFlipBook>
           </div>
         )}
-        <div className="walkingdiv">
+        <div className="walkingdiv" ref={walkpage}>
                 <img src={walk} alt="" className="walking"/>
                 </div>
         
