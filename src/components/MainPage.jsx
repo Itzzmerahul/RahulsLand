@@ -3,10 +3,13 @@ import HTMLFlipBook from "react-pageflip";
 import homevid from "../extra files/homevid-vmake.mp4";
 import newspap from "../extra files/Newspapimg.png";
 import birdsSong from "../extra files/saudade.mp3";
+import tree1 from "../extra files/tree.jpeg"
+import tree2 from "../extra files/tree1.jpeg"
 import sound from "../extra files/sound.png";
 import news1 from "../extra files/news1.png";
 import newsstack from "../extra files/newsstack.png";
-import walk from "../extra files/walk4.png"
+import walk from "../extra files/walk10.png"
+import cloud1 from "../extra files/cloud.png"
 import solace from "../extra files/solace.png";
 import flipSound from "../extra files/pagefilp.mp3"; // using uploaded mp3 directly
 
@@ -156,6 +159,19 @@ he reads the  <br/> pulse of the world today.</p>
         )}
         <div className="walkingdiv" ref={walkpage}>
                 <img src={walk} alt="" className="walking"/>
+                </div>
+
+
+                <div className="treediv">
+                  <div className="tree1" >
+                    <img src={tree1} alt="" className="treeimg"/>
+                    <img src={cloud1} alt="" className="cloud"/>
+                    </div>
+
+                  <div className="tree2" >
+                    <img src={tree2} alt="" className="tree2img"/>
+                    </div>
+
                 </div>
         
       </div>
