@@ -11,7 +11,7 @@ import newsstack from "../extra files/newsstack.png";
 import walk from "../extra files/walk10.png"
 import cloud1 from "../extra files/cloud.png"
 import solace from "../extra files/solace.png";
-import flipSound from "../extra files/pagefilp.mp3"; // using uploaded mp3 directly
+import flipSound from "../extra files/pagefilp.mp3"; 
 
 export default function MainPage() {
   const audref = useRef(null);
