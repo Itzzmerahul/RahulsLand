@@ -74,14 +74,14 @@ I believe code is an art — and I am here to be the artist.`;
       return;
     }
 
-    // Push both input and response to the list
+    
    setList((prev) => [
   ...prev,
-  { type: "input", text: inp },         // 👈 Push the typed command
-  { type: "response", text: response }  // 👈 Push the output/response
+  { type: "input", text: inp },        
+  { type: "response", text: response } 
 ]);
 
-    setInp(""); // Clear the input
+    setInp("");
   }
 };
 
@@ -114,7 +114,7 @@ I believe code is an art — and I am here to be the artist.`;
     alt="left"
     className={`hands handsleft ${loaded && !distortgif ? "active" : ""}`}
   />
-  {distortgif && <div className="fill-animation" />} {/* Moved here */}
+  {distortgif && <div className="fill-animation" />}
   <div className="gif-wrapper">
     <img
       src={gif}
